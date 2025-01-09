@@ -27,9 +27,15 @@ def calculate_ma_offset(df):
 
     # 计算五日均线
     df['MA5'] = df['close'].rolling(window=5).mean()
+    df['MA10'] = df['close'].rolling(window=10).mean()
+    df['MA20'] = df['close'].rolling(window=20).mean()
+    df['MA30'] = df['close'].rolling(window=30).mean()
 
     # 计算乖离率
-    df['乖离率'] = (df['open'] - df['MA5']) / df['MA5'] * 100
+    df['乖离率5'] = (df['open'] - df['MA5']) / df['MA5'] * 100
+    df['乖离率10'] = (df['open'] - df['MA10']) / df['MA10'] * 100
+    df['乖离率20'] = (df['open'] - df['MA20']) / df['MA20'] * 100
+    df['乖离率30'] = (df['open'] - df['MA30']) / df['MA30'] * 100
 
     # print(df)
     return df
